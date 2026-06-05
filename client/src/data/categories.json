@@ -1,0 +1,133 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Keyrings",
+    "slug": "keyring",
+    "image": "https://picsum.photos/seed/pinkkeyring/600/600",
+    "count": 45,
+    "description": "Pressed-flower resin charms",
+    "subcategories": [
+      { "name": "Resin Keyring", "slug": "resin-keyring" },
+      { "name": "Pipe Cleaner Keyring", "slug": "pipe-cleaner-keyring" },
+      { "name": "Dream Catcher Keyring", "slug": "dream-catcher-keyring" },
+      { "name": "Embroidery Crochet Keyring", "slug": "embroidery-crochet-keyring" }
+    ]
+  },
+  {
+    "id": "cat-2",
+    "name": "Frames",
+    "slug": "frames",
+    "image": "https://picsum.photos/seed/lavenderframe/600/600",
+    "count": 32,
+    "description": "Personalised keepsakes",
+    "subcategories": [
+      { "name": "Resin Frame", "slug": "resin-frame" },
+      { "name": "String Art Frame", "slug": "string-art-frame" },
+      { "name": "Embroidery Hoop Frame", "slug": "embroidery-hoop-frame" },
+      { "name": "Glass Frame", "slug": "glass-frame" }
+    ]
+  },
+  {
+    "id": "cat-3",
+    "name": "Jewellery",
+    "slug": "jewellery",
+    "image": "https://picsum.photos/seed/pearljewel/600/600",
+    "count": 128,
+    "description": "Handcrafted beads & charms",
+    "subcategories": [
+      { "name": "Beads Bracelet", "slug": "beads-bracelet" },
+      { "name": "Evil Eye Bracelet", "slug": "evileye-bracelet" },
+      { "name": "Charms Anklet", "slug": "charms-anklet" },
+      { "name": "Thread Charms Anklet", "slug": "thread-charms-anklet" },
+      { "name": "Tribal Boho Hair Tie", "slug": "tribal-boho-hair-tie" },
+      { "name": "Shrink Jewellery", "slug": "shrink-jewellery" },
+      { "name": "Jute Brooch", "slug": "jute-brooch" }
+    ]
+  },
+  {
+    "id": "cat-4",
+    "name": "Crochet",
+    "slug": "crochet",
+    "image": "https://picsum.photos/seed/crochetbouquet/600/600",
+    "count": 56,
+    "description": "Soft yarn florals & accessories",
+    "subcategories": [
+      { "name": "Gajra", "slug": "gajra" },
+      { "name": "Daisy Flower Keyring", "slug": "daisy-flower-keyring" },
+      { "name": "Peacock Feather Keyring", "slug": "peacock-feather-keyring" },
+      { "name": "Watermelon Keyring", "slug": "watermelon-keyring" },
+      { "name": "Evil Eye Keyring", "slug": "evileye-keyring" },
+      { "name": "Other Crochet", "slug": "other-crochet" }
+    ]
+  },
+  {
+    "id": "cat-5",
+    "name": "Ring Platter",
+    "slug": "engagement-ring-platter",
+    "image": "https://picsum.photos/seed/ringplatter/600/600",
+    "count": 15,
+    "description": "Engagement & gifting",
+    "subcategories": [
+      { "name": "Floral Platter", "slug": "floral-platter" },
+      { "name": "Resin Platter", "slug": "resin-platter" },
+      { "name": "Custom Name Platter", "slug": "custom-name-platter" }
+    ]
+  },
+  {
+    "id": "cat-6",
+    "name": "Pipe Cleaner Bouquets",
+    "slug": "pipe-cleaner-flower-bouquet",
+    "image": "https://picsum.photos/seed/pinkbouquet/600/600",
+    "count": 24,
+    "description": "Blooms that last forever",
+    "subcategories": [
+      { "name": "Mini Bouquet", "slug": "mini-bouquet" },
+      { "name": "Full Bouquet", "slug": "full-bouquet" },
+      { "name": "Bouquet with Pot", "slug": "bouquet-with-pot" }
+    ]
+  },
+  {
+    "id": "cat-7",
+    "name": "Fridge Magnets",
+    "slug": "fridge-magnet",
+    "image": "https://picsum.photos/seed/pastelmagnet/600/600",
+    "count": 89,
+    "description": "Tiny joys for your fridge",
+    "subcategories": [
+      { "name": "Resin Magnet", "slug": "resin-magnet" },
+      { "name": "Floral Magnet", "slug": "floral-magnet" },
+      { "name": "Custom Name Magnet", "slug": "custom-name-magnet" }
+    ]
+  },
+  {
+    "id": "cat-8",
+    "name": "Embroidery Hair Clips",
+    "slug": "embroidery-hair-clip",
+    "image": "https://picsum.photos/seed/hairclip/600/600",
+    "count": 42,
+    "description": "Hand-stitched accessories",
+    "subcategories": [
+      { "name": "Daisy Clip", "slug": "daisy-clip" },
+      { "name": "Floral Bouquet Clip", "slug": "floral-bouquet-clip" },
+      { "name": "Butterfly Clip", "slug": "butterfly-clip" },
+      { "name": "Custom Design Clip", "slug": "custom-design-clip" }
+    ]
+  },
+  {
+    "id": "cat-9",
+    "name": "Resin Art",
+    "slug": "resin",
+    "image": "https://picsum.photos/seed/resinart/600/600",
+    "count": 38,
+    "description": "Rose preservation & pendants",
+    "subcategories": [
+      { "name": "Rose Preservation Earrings", "slug": "rose-preservation-earrings" },
+      { "name": "Resin Ring", "slug": "resin-ring" },
+      { "name": "Pendant", "slug": "resin-pendant" },
+      { "name": "Resin Name Keyring", "slug": "resin-name-keyring" },
+      { "name": "Heart Keyring", "slug": "heart-keyring" },
+      { "name": "Car Hanging", "slug": "car-hanging" },
+      { "name": "Resin Frame", "slug": "resin-frame-art" }
+    ]
+  }
+]
