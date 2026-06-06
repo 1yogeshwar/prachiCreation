@@ -6,6 +6,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Users from "./pages/Users";
 import Layout from "./components/Layout";
+import Events from "./pages/Events";
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("admin-token");
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="products" element={<Products />} />
           <Route path="orders" element={<Orders />} />
           <Route path="users" element={<Users />} />
+          <Route path="/events" element={<Events />} />
         </Route>
       </Routes>
     </BrowserRouter>

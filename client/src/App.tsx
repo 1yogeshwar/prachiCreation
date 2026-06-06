@@ -17,6 +17,8 @@ import { Login } from "@/pages/Login";
 import { Register } from "@/pages/Register";
 import { AccountLayout } from "@/pages/account/AccountLayout";
 import { AdminLayout } from "@/pages/admin/AdminLayout";
+import { About }   from "@/pages/About";
+import { Contact } from "@/pages/Contact";
 
 export default function App() {
   return (
@@ -46,6 +48,8 @@ export default function App() {
                       <Route path="/register" component={Register} />
                       <Route path="/account" component={AccountLayout} />
                       <Route path="/account/:rest*" component={AccountLayout} />
+                      <Route path="/about"   component={About} />
+                      <Route path="/contact" component={Contact} />
                       <Route component={() => (
                         <div className="p-20 text-center">
                           <p className="font-serif text-4xl text-foreground">404</p>

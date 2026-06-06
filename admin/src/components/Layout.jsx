@@ -13,6 +13,7 @@ export default function Layout() {
           { to: "/products", label: "📦 Products" },
           { to: "/orders", label: "🧾 Orders" },
           { to: "/users", label: "👥 Users" },
+          { to: "/events", label: "🎪 Events" },
         ].map(({ to, label }) => (
           <NavLink key={to} to={to} end={to === "/"}
             style={({ isActive }) => ({
