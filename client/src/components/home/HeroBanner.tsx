@@ -312,7 +312,7 @@ export const HeroBanner = () => (
           </div>
 
           {/* Star rating — minimal, no avatars/text */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+          {/* <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
             style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 4 }}>
             <div style={{ display: "flex", gap: 3 }}>
               {[...Array(5)].map((_, i) => (
@@ -325,7 +325,7 @@ export const HeroBanner = () => (
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#9ca3af" }}>
               · 128 reviews
             </span>
-          </motion.div>
+          </motion.div> */}
 
         </motion.div>
       </div>
