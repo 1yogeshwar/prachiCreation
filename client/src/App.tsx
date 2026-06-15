@@ -19,6 +19,7 @@ import { AccountLayout } from "@/pages/account/AccountLayout";
 import { AdminLayout } from "@/pages/admin/AdminLayout";
 import { About }   from "@/pages/About";
 import { Contact } from "@/pages/Contact";
+import { CustomOrderPage } from "@/pages/CustomOrders";
 
 export default function App() {
   return (
@@ -50,6 +51,7 @@ export default function App() {
                       <Route path="/account/:rest*" component={AccountLayout} />
                       <Route path="/about"   component={About} />
                       <Route path="/contact" component={Contact} />
+                      <Route path="/custom" component={CustomOrderPage} />
                       <Route component={() => (
                         <div className="p-20 text-center">
                           <p className="font-serif text-4xl text-foreground">404</p>

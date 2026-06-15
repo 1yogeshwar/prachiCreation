@@ -169,6 +169,9 @@ export const Navbar = () => {
                     <p className="text-xs text-muted-foreground">{user?.email}</p>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => setLocation("/custom")}>
+  🎨 Custom Order
+</DropdownMenuItem>
                   {user?.role === "admin" && <DropdownMenuItem onClick={() => setLocation("/admin")}>Admin Dashboard</DropdownMenuItem>}
                   <DropdownMenuItem onClick={() => setLocation("/account/orders")}>My Orders</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLocation("/account/profile")}>Profile Settings</DropdownMenuItem>
@@ -179,6 +182,7 @@ export const Navbar = () => {
                 <>
                   <DropdownMenuItem onClick={() => setLocation("/login")}>Log in</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLocation("/register")}>Create an account</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLocation("/custom")}>🎨 Custom Order</DropdownMenuItem>
                    <DropdownMenuItem onClick={() => setLocation("/track")}>Track My Order</DropdownMenuItem>
 
                 </>

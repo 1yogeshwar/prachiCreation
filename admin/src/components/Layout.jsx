@@ -14,6 +14,7 @@ export default function Layout() {
           { to: "/orders", label: "🧾 Orders" },
           { to: "/users", label: "👥 Users" },
           { to: "/events", label: "🎪 Events" },
+          { to: "/custom-orders", label: "🎨 Custom Orders" }
         ].map(({ to, label }) => (
           <NavLink key={to} to={to} end={to === "/"}
             style={({ isActive }) => ({
