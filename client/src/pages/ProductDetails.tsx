@@ -11,8 +11,7 @@ import { cn } from "@/lib/utils";
 import { ProductCarousel } from "@/components/common/ProductCarousel";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-const WHATSAPP_NUMBER = "919876543210"; // ← Replace with Prachi's actual number
-
+const WHATSAPP_NUMBER = "918269511699";
 export const ProductDetails = () => {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
@@ -241,7 +240,7 @@ export const ProductDetails = () => {
 
             {/* Row 2 — WhatsApp Custom Button */}
             <a
-              href={`https://wa.me/9131456765?text=${whatsappMessage}`}
+             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full h-12 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90"
