@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Heart, Star } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Heart, Star, Image as ImageIcon } from "lucide-react";
 
 const heroImage = "./keyring.jpg";
 
@@ -28,9 +28,9 @@ const StitchDashes = () => (
   </svg>
 );
 
-// ── Slide 1 — existing beautiful hero ──
+// ── Slide 1 — Hero ──
 const Slide1 = () => (
-  <section className="relative overflow-hidden flex items-stretch"
+  <section className="relative overflow-hidden flex flex-col md:flex-row items-stretch"
     style={{ background: "#fff0f7", minHeight: 520 }}>
 
     <div className="pointer-events-none absolute inset-0"
@@ -41,11 +41,11 @@ const Slide1 = () => (
       ))}
     </div>
 
-    {/* LEFT */}
-    <div className="relative z-10 flex-1 flex items-center px-8 md:px-14 lg:px-20 py-20">
+    {/* LEFT — text */}
+    <div className="relative z-10 flex-1 flex items-center px-6 md:px-14 lg:px-20 pt-8 pb-4 md:py-20">
       <motion.div initial={{ opacity: 0, x: -28 }} animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.75, ease: [0.22,1,0.36,1] }}
-        style={{ position: "relative", display: "flex", flexDirection: "column", gap: 20, maxWidth: 480 }}>
+        style={{ position: "relative", display: "flex", flexDirection: "column", gap: 14, maxWidth: 480 }}>
 
         <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }} className="chip-label" style={{ width: "fit-content" }}>
@@ -55,12 +55,12 @@ const Slide1 = () => (
 
         <div>
           <h1 style={{ fontFamily: "'Playfair Display', serif",
-            fontSize: "clamp(38px, 4.5vw, 52px)",
+            fontSize: "clamp(30px, 4.5vw, 52px)",
             fontWeight: 700, lineHeight: 1.1, color: "#1a0a2e", margin: 0 }}>
             Little things,
           </h1>
           <h1 style={{ fontFamily: "'Playfair Display', serif",
-            fontSize: "clamp(38px, 4.5vw, 52px)",
+            fontSize: "clamp(30px, 4.5vw, 52px)",
             fontWeight: 700, fontStyle: "italic", lineHeight: 1.1, color: "#9333ea", margin: 0 }}>
             made with love.
           </h1>
@@ -68,7 +68,7 @@ const Slide1 = () => (
 
         <StitchDashes />
 
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, paddingTop: 4 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
           <Link href="/shop">
             <button className="btn-primary-craft">
               Shop the collection <ArrowRight style={{ width: 16, height: 16 }}/>
@@ -81,9 +81,38 @@ const Slide1 = () => (
       </motion.div>
     </div>
 
-    {/* RIGHT — floating product collage */}
+    {/* MOBILE IMAGE — shown only on mobile, below the text */}
+    <div className="block md:hidden px-6 pb-10 relative z-10">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2, ease: [0.22,1,0.36,1] }}
+        style={{ position: "relative", borderRadius: 20, overflow: "hidden",
+          boxShadow: "0 16px 48px rgba(147,51,234,0.20)",
+          border: "3px solid rgba(255,255,255,0.92)", height: 210 }}>
+        <img src={heroImage} alt="Handmade keyrings"
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}/>
+        {/* Price badge */}
+        <div style={{ position: "absolute", bottom: 10, right: 10,
+          background: "white", borderRadius: 10, padding: "5px 10px",
+          boxShadow: "0 4px 14px rgba(147,51,234,.2)",
+          fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: "#9333ea",
+          display: "flex", alignItems: "center", gap: 4 }}>
+          <Heart style={{ width: 10, height: 10, fill: "#ec4899", color: "#ec4899" }}/>
+          ₹249 · Keyrings
+        </div>
+        {/* Bestseller badge */}
+        <div style={{ position: "absolute", top: 10, left: 10,
+          background: "white", borderRadius: 8, padding: "4px 9px",
+          boxShadow: "0 3px 10px rgba(147,51,234,.15)",
+          fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
+          display: "flex", alignItems: "center", gap: 5 }}>
+          <span style={{ fontSize: 12 }}>🏆</span>
+          <span style={{ color: "#9333ea" }}>200+ sold</span>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* RIGHT — floating product collage (desktop only) */}
     <div className="hidden md:block flex-none relative" style={{ width: "46%", minHeight: 520 }}>
-      {/* Blobs */}
       <div style={{ position: "absolute", top: "5%", right: "10%", width: 260, height: 260,
         borderRadius: "50%", background: "radial-gradient(circle, rgba(221,180,255,0.40) 0%, transparent 70%)",
         pointerEvents: "none" }}/>
@@ -91,7 +120,6 @@ const Slide1 = () => (
         borderRadius: "50%", background: "radial-gradient(circle, rgba(253,164,205,0.35) 0%, transparent 70%)",
         pointerEvents: "none" }}/>
 
-      {/* Main product card */}
       <motion.div initial={{ opacity: 0, y: 30, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: -3 }}
         transition={{ duration: 0.9, delay: 0.15, ease: [0.22,1,0.36,1] }}
         style={{ position: "absolute", left: "4%", top: "10%", width: 240, height: 270, zIndex: 3 }}>
@@ -115,7 +143,6 @@ const Slide1 = () => (
         </motion.div>
       </motion.div>
 
-      {/* Crochet Posies card */}
       <motion.div initial={{ opacity: 0, x: 20, rotate: 8 }} animate={{ opacity: 1, x: 0, rotate: 7 }}
         transition={{ duration: 0.85, delay: 0.35, ease: [0.22,1,0.36,1] }}
         style={{ position: "absolute", right: "6%", top: "6%", width: 160, zIndex: 2 }}>
@@ -140,7 +167,6 @@ const Slide1 = () => (
         </motion.div>
       </motion.div>
 
-      {/* Floral Frames card */}
       <motion.div initial={{ opacity: 0, x: 20, rotate: 4 }} animate={{ opacity: 1, x: 0, rotate: 5 }}
         transition={{ duration: 0.85, delay: 0.55, ease: [0.22,1,0.36,1] }}
         style={{ position: "absolute", right: "4%", bottom: "14%", width: 155, zIndex: 2 }}>
@@ -165,7 +191,6 @@ const Slide1 = () => (
         </motion.div>
       </motion.div>
 
-      {/* Bestseller badge */}
       <motion.div initial={{ opacity: 0, scale: 0.75 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.75 }}
         style={{ position: "absolute", top: "34%", right: "2%", zIndex: 5,
@@ -180,13 +205,11 @@ const Slide1 = () => (
         </div>
       </motion.div>
 
-      {/* Spinning flower */}
       <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         style={{ position: "absolute", top: "3%", left: "2%", zIndex: 4 }}>
         <FlowerSvg size={30} style={{ color: "#c084fc", opacity: 0.55 }}/>
       </motion.div>
 
-      {/* Sparkle dots */}
       {[
         { top: "15%", left: "40%", size: 7, color: "#9333ea" },
         { top: "62%", right: "1%", size: 5, color: "#ec4899" },
@@ -259,14 +282,11 @@ const Slide2 = () => (
       </motion.div>
     </div>
 
-    {/* Right side illustration */}
     <div className="hidden md:flex flex-none items-center justify-center relative"
       style={{ width: "42%", minHeight: 520 }}>
       <motion.div
         initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.22,1,0.36,1] }}
-        animate-custom={{ y: [0,-8,0] }}
-      >
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.22,1,0.36,1] }}>
         <motion.div animate={{ y: [0,-8,0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
           <div style={{ width: 220, height: 260, borderRadius: 20,
             background: "linear-gradient(135deg, #fce7f3, #fef3c7)",
@@ -278,7 +298,6 @@ const Slide2 = () => (
         </motion.div>
       </motion.div>
 
-      {/* Floating tags */}
       {[
         { text: "Pressed flowers", top: "15%", left: "-10%", bg: "#fce7f3", color: "#ec4899" },
         { text: "Handframed",      bottom: "20%", right: "-5%", bg: "#ede9fe", color: "#9333ea" },
@@ -387,165 +406,160 @@ const Slide3 = () => (
   </section>
 );
 
-// ── Mobile Hero ──
-const MobileHero = () => (
-  <section style={{ background: "linear-gradient(160deg, #fff0f7 0%, #fdf4ff 100%)",
-    padding: "28px 20px 24px", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", top: -40, right: -40, width: 200, height: 200,
-      borderRadius: "50%", background: "radial-gradient(circle, rgba(221,180,255,0.4), transparent 70%)",
-      pointerEvents: "none" }}/>
-    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
-      style={{ display: "inline-flex", alignItems: "center", gap: 6,
-        background: "rgba(147,51,234,0.08)", borderRadius: 999,
-        padding: "5px 12px", marginBottom: 14 }}>
-      <FlowerSvg size={10} style={{ color: "#7e22ce" }}/>
-      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
-        color: "#7e22ce", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-        Handmade in small batches
-      </span>
-    </motion.div>
-    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32,
-        fontWeight: 700, lineHeight: 1.15, color: "#1a0a2e", margin: "0 0 4px" }}>
-        Little things,
-      </h1>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32,
-        fontWeight: 700, fontStyle: "italic", lineHeight: 1.15, color: "#9333ea", margin: "0 0 14px" }}>
-        made with love.
-      </h1>
-    </motion.div>
-    <StitchDashes />
-    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.2 }}
-      style={{ margin: "18px 0", borderRadius: 18, overflow: "hidden",
-        boxShadow: "0 16px 48px rgba(147,51,234,0.18)",
-        border: "3px solid rgba(255,255,255,0.9)",
-        position: "relative", height: 200 }}>
-      <img src={heroImage} alt="Handmade keyrings"
-        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}/>
-      <div style={{ position: "absolute", bottom: 10, right: 10,
-        background: "white", borderRadius: 10, padding: "5px 10px",
-        boxShadow: "0 4px 14px rgba(147,51,234,.2)",
-        fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: "#9333ea",
-        display: "flex", alignItems: "center", gap: 4 }}>
-        <Heart style={{ width: 10, height: 10, fill: "#ec4899", color: "#ec4899" }}/>
-        ₹249 · Keyrings
+// ── Slide 4 & 5 — Banner/Poster placeholders (Prachi can replace src with her images) ──
+const BannerSlide = ({
+  src,
+  alt,
+  label,
+  tag,
+  cta,
+  href,
+  bg,
+}: {
+  src?: string;
+  alt?: string;
+  label?: string;
+  tag?: string;
+  cta?: string;
+  href?: string;
+  bg?: string;
+}) => (
+  <section className="relative overflow-hidden flex items-stretch"
+    style={{ minHeight: 520, background: bg ?? "#fdf4ff" }}>
+    {src ? (
+      <img src={src} alt={alt ?? "Banner"} style={{
+        position: "absolute", inset: 0, width: "100%", height: "100%",
+        objectFit: "cover", objectPosition: "center",
+      }}/>
+    ) : (
+      /* Placeholder shown until Prachi adds her poster image */
+      <div style={{
+        position: "absolute", inset: 0,
+        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+        gap: 14,
+        background: "repeating-linear-gradient(45deg, rgba(147,51,234,0.04) 0px, rgba(147,51,234,0.04) 1px, transparent 1px, transparent 12px)",
+      }}>
+        <div style={{
+          width: 64, height: 64, borderRadius: 18,
+          background: "rgba(147,51,234,0.10)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <ImageIcon style={{ width: 28, height: 28, color: "#9333ea", opacity: 0.6 }}/>
+        </div>
+        <p style={{
+          fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 600,
+          color: "#9333ea", opacity: 0.7, margin: 0, textAlign: "center",
+          maxWidth: 260, lineHeight: 1.6,
+        }}>
+          {label ?? "Your banner / sale poster goes here"}<br/>
+          <span style={{ fontWeight: 400, fontSize: 12, opacity: 0.8 }}>
+            Replace <code>src</code> prop with your image path
+          </span>
+        </p>
       </div>
-    </motion.div>
-    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 }} style={{ display: "flex", gap: 10 }}>
-      <Link href="/shop" style={{ flex: 1 }}>
-        <button style={{ width: "100%", padding: "12px 0",
-          background: "linear-gradient(135deg, #9333ea, #ec4899)",
-          color: "#fff", border: "none", borderRadius: 12,
-          fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700,
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-          cursor: "pointer" }}>
-          Shop now <ArrowRight style={{ width: 15, height: 15 }}/>
-        </button>
-      </Link>
-      <Link href="/about">
-        <button style={{ padding: "12px 16px", background: "transparent",
-          color: "#9333ea", border: "2px solid rgba(147,51,234,0.3)",
-          borderRadius: 12, fontFamily: "'Inter', sans-serif",
-          fontSize: 14, fontWeight: 600, cursor: "pointer", whiteSpace: "nowrap" }}>
-          Our story
-        </button>
-      </Link>
-    </motion.div>
+    )}
+
+    {/* Overlay so text stays readable over any photo */}
+    {src && (
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "linear-gradient(90deg, rgba(26,10,46,0.55) 0%, rgba(26,10,46,0.10) 60%, transparent 100%)",
+      }}/>
+    )}
+
+    {/* Text content (only shown when a real image + tag/cta are supplied) */}
+    {(tag || cta) && (
+      <div className="relative z-10 flex-1 flex items-center px-8 md:px-14 lg:px-20 py-20">
+        <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: [0.22,1,0.36,1] }}
+          style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 440 }}>
+          {tag && (
+            <span style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)",
+              borderRadius: 999, padding: "5px 14px", width: "fit-content",
+              fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
+              color: "#fff", letterSpacing: "0.08em", textTransform: "uppercase",
+              border: "1px solid rgba(255,255,255,0.3)",
+            }}>{tag}</span>
+          )}
+          {cta && href && (
+            <Link href={href}>
+              <button style={{
+                padding: "13px 28px",
+                background: "white", color: "#7c3aed",
+                border: "none", borderRadius: 12,
+                fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700,
+                cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6,
+                width: "fit-content",
+              }}>
+                {cta} <ArrowRight style={{ width: 16, height: 16 }}/>
+              </button>
+            </Link>
+          )}
+        </motion.div>
+      </div>
+    )}
   </section>
 );
 
-// ── Main Slider ──
-const slides = [Slide1, Slide2, Slide3];
+const Slide4 = () => (
+  <BannerSlide
+    label="Summer sale poster · Slide 4"
+    /* Once ready, replace with:
+       src="./banner-summer.jpg"
+       tag="Up to 40% off · Limited time"
+       cta="Shop the sale"
+       href="/sale"
+    */
+  />
+);
 
-const HeroSlider = () => {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [paused, setPaused] = useState(false);
+const Slide5 = () => (
+  <BannerSlide
+    label="New arrivals poster · Slide 5"
+    bg="#fff0f7"
+    /* Once ready, replace with:
+       src="./banner-new.jpg"
+       tag="Just dropped"
+       cta="See new arrivals"
+       href="/shop?sort=new"
+    */
+  />
+);
 
-  const go = useCallback((idx: number, dir: number) => {
-    setDirection(dir);
-    setCurrent(idx);
-  }, []);
-
-  useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(() => {
-      go((current + 1) % slides.length, 1);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [current, paused, go]);
-
-  const prev = () => go((current - 1 + slides.length) % slides.length, -1);
-  const next = () => go((current + 1) % slides.length, 1);
-
-  const SlideComponent = slides[current];
-
-  return (
-    <div
-      style={{ position: "relative", width: "100%", overflow: "hidden" }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
-          key={current}
-          custom={direction}
-          initial={{ opacity: 0, x: direction * 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction * -80 }}
-          transition={{ duration: 0.5, ease: [0.22,1,0.36,1] }}
-        >
-          <SlideComponent />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Arrows */}
-      {[
-        { dir: -1, side: "left", icon: ChevronLeft, action: prev },
-        { dir:  1, side: "right", icon: ChevronRight, action: next },
-      ].map(({ side, icon: Icon, action }) => (
-        <button key={side} onClick={action} style={{
-          position: "absolute", [side]: 16, top: "50%", transform: "translateY(-50%)",
-          width: 40, height: 40, borderRadius: "50%",
-          background: "rgba(255,255,255,0.92)", border: "1.5px solid rgba(147,51,234,0.15)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          cursor: "pointer", zIndex: 20,
-          boxShadow: "0 4px 16px rgba(147,51,234,0.12)",
-          transition: "transform 0.15s",
-        }}
-          onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-50%) scale(1.08)")}
-          onMouseLeave={e => (e.currentTarget.style.transform = "translateY(-50%) scale(1)")}
-        >
-          <Icon style={{ width: 20, height: 20, color: "#9333ea" }}/>
-        </button>
-      ))}
-
-      {/* Dot indicators */}
-      <div style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)",
-        display: "flex", gap: 6, zIndex: 20 }}>
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => go(i, i > current ? 1 : -1)} style={{
-            width: i === current ? 24 : 8, height: 8,
-            borderRadius: 999, border: "none", cursor: "pointer",
-            background: i === current ? "#9333ea" : "rgba(147,51,234,0.25)",
-            transition: "all 0.3s", padding: 0,
-          }}/>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// ── Category Strip ──
+// ── Mobile Category Icon Strip (mobile-only, above slider) ──
 const categories = [
-  { label: "Frames",          slug: "frames",          emoji: "🖼️" },
-  { label: "Keyrings",        slug: "keyrings",        emoji: "🔑" },
-  { label: "Embroidery Hoop", slug: "embroidery-hoop", emoji: "🧵" },
-  { label: "Resin Gifts",     slug: "resin-gifts",     emoji: "💎" },
+  { label: "Frames",     slug: "frames",          emoji: "🖼️" },
+  { label: "Keyrings",   slug: "keyrings",        emoji: "🔑" },
+  { label: "Embroidery", slug: "embroidery-hoop", emoji: "🧵" },
+  { label: "Resin",      slug: "resin-gifts",     emoji: "💎" },
 ];
 
+const MobileCategoryStrip = () => (
+  <div style={{
+    display: "flex", background: "#fff",
+    borderBottom: "1px solid #f0e6ff",
+  }}>
+    {categories.map(({ label, slug, emoji }, idx) => (
+      <Link key={slug} href={`/shop/category/${slug}`} style={{ flex: 1 }}>
+        <div style={{
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+          padding: "12px 4px",
+          borderRight: idx < categories.length - 1 ? "1px solid #f0e6ff" : "none",
+        }}>
+          <span style={{ fontSize: 20 }}>{emoji}</span>
+          <span style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 10, fontWeight: 600, color: "#374151", textAlign: "center",
+          }}>{label}</span>
+        </div>
+      </Link>
+    ))}
+  </div>
+);
+
+// ── Desktop Category Strip (unchanged) ──
 const CategoryStrip = () => (
   <div style={{ background: "#fff", borderBottom: "1px solid #f0e6ff", borderTop: "1px solid #f0e6ff" }}>
     <div style={{ display: "flex", justifyContent: "center", maxWidth: 900, margin: "0 auto" }}>
@@ -573,7 +587,7 @@ const CategoryStrip = () => (
   </div>
 );
 
-// ── Marquee ──
+// ── Marquee (unchanged) ──
 const tickerItems = [
   { emoji: "🌸", text: "Handmade with love" },
   { emoji: "✨", text: "Limited edition drops" },
@@ -614,7 +628,7 @@ const MarqueeTicker = () => {
   );
 };
 
-// ── Logo export ──
+// ── Logo (unchanged) ──
 export const PrachiLogo = ({ size = 1 }: { size?: number }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
     <div style={{
@@ -656,22 +670,112 @@ export const PrachiLogo = ({ size = 1 }: { size?: number }) => (
   </div>
 );
 
+// ── Main Slider (5 slides, 5s auto-advance) ──
+const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
+
+const HeroSlider = () => {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
+  const currentRef = React.useRef(0);
+  const pausedRef  = React.useRef(false);
+
+  useEffect(() => { currentRef.current = current; }, [current]);
+  useEffect(() => { pausedRef.current  = paused;  }, [paused]);
+
+  const go = useCallback((idx: number, dir: number) => {
+    setDirection(dir);
+    setCurrent(idx);
+  }, []);
+
+  // Single stable interval — never resets on slide change
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (pausedRef.current) return;
+      go((currentRef.current + 1) % slides.length, 1);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [go]);
+
+  const prev = () => go((current - 1 + slides.length) % slides.length, -1);
+  const next = () => go((current + 1) % slides.length, 1);
+
+  const SlideComponent = slides[current];
+
+  return (
+    <div
+      style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={current}
+          custom={direction}
+          initial={{ opacity: 0, x: direction * 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: direction * -80 }}
+          transition={{ duration: 0.5, ease: [0.22,1,0.36,1] }}
+        >
+          <SlideComponent />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Arrows */}
+      {[
+        { side: "left",  icon: ChevronLeft,  action: prev },
+        { side: "right", icon: ChevronRight, action: next },
+      ].map(({ side, icon: Icon, action }) => (
+        <button key={side} onClick={action} style={{
+          position: "absolute", [side]: 16, top: "50%", transform: "translateY(-50%)",
+          width: 40, height: 40, borderRadius: "50%",
+          background: "rgba(255,255,255,0.92)", border: "1.5px solid rgba(147,51,234,0.15)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          cursor: "pointer", zIndex: 20,
+          boxShadow: "0 4px 16px rgba(147,51,234,0.12)",
+          transition: "transform 0.15s",
+        }}
+          onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-50%) scale(1.08)")}
+          onMouseLeave={e => (e.currentTarget.style.transform = "translateY(-50%) scale(1)")}
+        >
+          <Icon style={{ width: 20, height: 20, color: "#9333ea" }}/>
+        </button>
+      ))}
+
+      {/* Dot indicators */}
+      <div style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)",
+        display: "flex", gap: 6, zIndex: 20 }}>
+        {slides.map((_, i) => (
+          <button key={i} onClick={() => go(i, i > current ? 1 : -1)} style={{
+            width: i === current ? 24 : 8, height: 8,
+            borderRadius: 999, border: "none", cursor: "pointer",
+            background: i === current ? "#9333ea" : "rgba(147,51,234,0.25)",
+            transition: "all 0.3s", padding: 0,
+          }}/>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // ── Main Export ──
 export const HeroBanner = () => (
   <>
-    {/* Mobile — compact hero first, then slider */}
+    {/* ── MOBILE ──
+        Icon strip (4 categories) → Slider → Marquee
+        No MobileHero duplicate, no CategoryStrip below slider */}
     <div className="md:hidden">
-      <MobileHero />
+      <MobileCategoryStrip />
       <HeroSlider />
+      <MarqueeTicker />
     </div>
 
-    {/* Desktop — slider IS the hero */}
+    {/* ── DESKTOP ──
+        Slider → CategoryStrip → Marquee */}
     <div className="hidden md:block">
       <HeroSlider />
+      <CategoryStrip />
+      <MarqueeTicker />
     </div>
-
-    {/* Category strip + marquee — all screens */}
-    <CategoryStrip />
-    <MarqueeTicker />
   </>
 );
