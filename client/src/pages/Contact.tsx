@@ -12,7 +12,7 @@ export const Contact = () => {
     setLoading(true);
     // For now — just show success (email service can be added later)
     setTimeout(() => {
-      toast.success("Message sent! Prachi will get back to you soon 💜");
+      toast.success("Message sent! Pragya will get back to you soon 💜");
       setForm({ name: "", email: "", subject: "", message: "" });
       setLoading(false);
     }, 1000);
@@ -31,7 +31,7 @@ export const Contact = () => {
             </h1>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#6b7280", lineHeight: 1.7 }}>
               Questions about an order, custom requests, or just want to say hello —
-              Prachi reads every message personally.
+              Pragya reads every message personally.
             </p>
           </motion.div>
         </div>
@@ -49,7 +49,7 @@ export const Contact = () => {
               </h2>
 
               {[
-                { icon: Mail,      label: "Email",     value: "prachi@prachicreation.com",  href: "mailto:prachi@prachicreation.com" },
+                { icon: Mail,      label: "Email",     value: "Pragya@Pragyacreation.com",  href: "mailto:Pragya@Pragyacreation.com" },
                 { icon: Phone,     label: "Phone",     value: "+91 98765 43210",             href: "tel:+919876543210" },
                 { icon: MapPin,    label: "Studio",    value: "Nagpur, Maharashtra, India",  href: null },
               ].map(({ icon: Icon, label, value, href }) => (
@@ -76,8 +76,8 @@ export const Contact = () => {
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#9ca3af", marginBottom: 12 }}>Follow along</p>
                 <div style={{ display: "flex", gap: 10 }}>
                   {[
-                    { icon: Instagram,      label: "Instagram", href: "https://instagram.com/prachicreation", color: "#e1306c" },
-                    { icon: MessageCircle,  label: "WhatsApp",  href: "https://wa.me/919876543210",           color: "#25d366" },
+                    { icon: Instagram,      label: "Instagram", href: "https://instagram.com/Pragyacreation", color: "#e1306c" },
+                    { icon: MessageCircle,  label: "WhatsApp",  href: "https://wa.me/918269511699",           color: "#25d366" },
                   ].map(({ icon: Icon, label, href, color }) => (
                     <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                       style={{
@@ -105,7 +105,7 @@ export const Contact = () => {
                   ⏱ Response time
                 </p>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>
-                  Prachi typically replies within 24 hours on weekdays.
+                  Pragya typically replies within 24 hours on weekdays.
                   For urgent order queries, WhatsApp is fastest!
                 </p>
               </div>
@@ -151,7 +151,7 @@ export const Contact = () => {
 
                 <div style={{ marginBottom: 24 }}>
                   <label style={labelStyle}>Message</label>
-                  <textarea placeholder="Tell Prachi what's on your mind..."
+                  <textarea placeholder="Tell Pragya what's on your mind..."
                     value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
                     style={{ ...inputStyle, height: 120, resize: "vertical" }} required />
@@ -183,7 +183,7 @@ export const Contact = () => {
           </motion.div>
           <div className="space-y-4">
             {[
-              { q: "Do you take custom orders?", a: "Yes! Custom orders are welcome for most products. Reach out via the form or WhatsApp with your idea and Prachi will let you know what's possible." },
+              { q: "Do you take custom orders?", a: "Yes! Custom orders are welcome for most products. Reach out via the form or WhatsApp with your idea and Pragya will let you know what's possible." },
               { q: "How long does shipping take?", a: "Orders are usually dispatched within 2-3 business days. Delivery takes 4-7 business days depending on your location across India." },
               { q: "What if my order arrives damaged?", a: "Please take a photo and WhatsApp or email us within 48 hours of delivery. We'll make it right — replacement or full refund." },
               { q: "Do you ship outside India?", a: "Currently we ship within India only. International shipping is something we're working towards!" },

@@ -78,7 +78,7 @@ export const ProductDetails = () => {
 
   // Build WhatsApp message
   const whatsappMessage = encodeURIComponent(
-    `Hi Prachi! 👋 I'm interested in a custom version of *${product.name}* (₹${product.price}).\n\n` +
+    `Hi Pragya! 👋 I'm interested in a custom version of *${product.name}* (₹${product.price}).\n\n` +
     (selectedColor ? `🎨 Color: ${selectedColor}\n` : "") +
     (selectedSize  ? `📐 Size: ${selectedSize}\n`   : "") +
     `🔢 Quantity: ${quantity}\n\n` +

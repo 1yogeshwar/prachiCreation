@@ -29,7 +29,7 @@ export const About = () => {
               <em style={{ color: "#9333ea" }}>sent with love.</em>
             </h1>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 17, color: "#6b7280", lineHeight: 1.8, maxWidth: 560, margin: "0 auto" }}>
-              Prachi Creation started as a quiet passion — pressing flowers, looping threads,
+              Pragya Creation started as a quiet passion — pressing flowers, looping threads,
               framing memories. What began in a small room in Nagpur has grown into a little
               world of handmade treasures shared across India.
             </p>
@@ -58,7 +58,7 @@ export const About = () => {
               viewport={{ once: true }} className="space-y-5">
               <span className="chip-label">Meet the maker</span>
               <h2 className="font-serif font-bold" style={{ fontSize: 32, color: "#1a0a2e" }}>
-                Hi, I'm Prachi 👋
+                Hi, I'm Pragya 👋
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: "#6b7280", lineHeight: 1.8 }}>
                 I've always believed that the smallest things carry the most meaning —
@@ -89,7 +89,7 @@ export const About = () => {
             viewport={{ once: true }} className="text-center mb-12 space-y-3">
             <span className="chip-label">What we believe</span>
             <h2 className="font-serif font-semibold" style={{ fontSize: 28, color: "#1a0a2e" }}>
-              The Prachi Creation way
+              The Pragya Creation way
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
