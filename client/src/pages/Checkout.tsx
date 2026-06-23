@@ -59,112 +59,153 @@ export const Checkout = () => {
     setStep(2);
   };
 
-  const placeOrder = async (razorpayOrderId?: string) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`${API}/orders`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+ const placeOrder = async (razorpayOrderId?: string) => {
+  setLoading(true);
+  try {
+    const res = await fetch(`${API}/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({
+        items: items.map(i => ({
+          product:  i.productId,
+          name:     i.name,
+          image:    i.image,
+          price:    i.price,
+          quantity: i.quantity,
+        })),
+        shippingAddress: {
+          firstName: orderData.firstName,
+          lastName:  orderData.lastName,
+          address:   orderData.address,
+          city:      orderData.city,
+          state:     orderData.state,
+          zip:       orderData.zip,
         },
-        body: JSON.stringify({
-          items: items.map(i => ({
-            product:       i.productId,
-            name:          i.name,
-            image:         i.image,
-            price:         i.price,
-            quantity:      i.quantity,
-            // selectedColor: i.selectedColor || "",
-            // selectedSize:  i.selectedSize  || "",
-          })),
-          shippingAddress: {
-            firstName: orderData.firstName,
-            lastName:  orderData.lastName,
-            address:   orderData.address,
-            city:      orderData.city,
-            state:     orderData.state,
-            zip:       orderData.zip,
-          },
-          guestEmail:    orderData.email,
-          phone:         orderData.phone,
-          subtotal:      totalPrice,
-          tax, shipping, total,
-          paymentMethod,
-          razorpayOrderId: razorpayOrderId || "",
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-      setPlacedOrder(data);
-      clearCart();
-      setStep(3);
-    } catch (err: any) {
-      toast.error(err.message || "Failed to place order");
-    } finally {
-      setLoading(false);
-    }
-  };
+        guestEmail:      orderData.email,
+        phone:           orderData.phone,
+        subtotal:        totalPrice,
+        tax, shipping, total,
+        paymentMethod,
+        razorpayOrderId: razorpayOrderId || "",
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    setPlacedOrder(data);
+    clearCart();
+    setStep(3);
+  } catch (err: any) {
+    toast.error(err.message || "Failed to place order");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handlePayment = async () => {
-    // COD or Phone — place order directly
-    if (paymentMethod !== "online") {
-      await placeOrder();
-      return;
-    }
+  if (paymentMethod !== "online") {
+    await placeOrder();
+    return;
+  }
 
-    // Online — load Razorpay
-    setLoading(true);
-    try {
-      const res = await fetch(`${API}/payment/create-order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: total }),
-      });
-      const rzpOrder = await res.json();
+  setLoading(true);
+  try {
+    const res = await fetch(`${API}/payment/create-order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: total }),
+    });
+    const rzpOrder = await res.json();
 
-      const options = {
-        key:      rzpOrder.key,
-        amount:   rzpOrder.amount,
-        currency: rzpOrder.currency,
-        name:     "CraftWorld",
-        description: "Handcrafted with love",
-        order_id: rzpOrder.orderId,
-        prefill: {
-          name:    `${orderData.firstName} ${orderData.lastName}`,
-          email:   orderData.email,
-          contact: orderData.phone,
-        },
-        handler: async (response: any) => {
-          // Payment success — save order then verify
-          await placeOrder(rzpOrder.orderId);
+    const options = {
+      key:         rzpOrder.key,
+      amount:      rzpOrder.amount,
+      currency:    rzpOrder.currency,
+      name:        "Prachi Creation",
+      description: "Handcrafted with love",
+      order_id:    rzpOrder.orderId,
+      prefill: {
+        name:    `${orderData.firstName} ${orderData.lastName}`,
+        email:   orderData.email,
+        contact: orderData.phone,
+      },
+      handler: async (response: any) => {
+        setLoading(true);
+        try {
+          // Step 1 — Save order to DB, get back the order with _id
+          const orderRes = await fetch(`${API}/orders`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            },
+            body: JSON.stringify({
+              items: items.map(i => ({
+                product:  i.productId,
+                name:     i.name,
+                image:    i.image,
+                price:    i.price,
+                quantity: i.quantity,
+              })),
+              shippingAddress: {
+                firstName: orderData.firstName,
+                lastName:  orderData.lastName,
+                address:   orderData.address,
+                city:      orderData.city,
+                state:     orderData.state,
+                zip:       orderData.zip,
+              },
+              guestEmail:      orderData.email,
+              phone:           orderData.phone,
+              subtotal:        totalPrice,
+              tax, shipping, total,
+              paymentMethod:   "online",
+              razorpayOrderId: rzpOrder.orderId,
+            }),
+          });
+          const savedOrder = await orderRes.json(); // ✅ use directly, not from state
+          if (!orderRes.ok) throw new Error(savedOrder.message);
 
-          // Verify signature
-          if (placedOrder) {
-            await fetch(`${API}/payment/verify`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                razorpay_order_id:   response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature:  response.razorpay_signature,
-                orderId:             placedOrder._id,
-              }),
-            });
-          }
-        },
-        modal: { ondismiss: () => { setLoading(false); toast.error("Payment cancelled"); } },
-        theme: { color: "#7c3aed" },
-      };
+          // Step 2 — Verify payment using savedOrder._id directly
+          await fetch(`${API}/payment/verify`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id:   response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature:  response.razorpay_signature,
+              orderId:             savedOrder._id, // ✅ from local var, not state
+            }),
+          });
 
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (err: any) {
-      toast.error("Could not initiate payment");
-    } finally {
-      setLoading(false);
-    }
-  };
+          // Step 3 — Update UI
+          setPlacedOrder(savedOrder);
+          clearCart();
+          setStep(3);
+        } catch (err: any) {
+          toast.error(err.message || "Failed to save order after payment");
+        } finally {
+          setLoading(false);
+        }
+      },
+      modal: {
+        ondismiss: () => {
+          setLoading(false);
+          toast.error("Payment cancelled");
+        }
+      },
+      theme: { color: "#7c3aed" },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  } catch {
+    toast.error("Could not initiate payment");
+    setLoading(false);
+  }
+};
 
   // Add Razorpay script to head
   React.useEffect(() => {

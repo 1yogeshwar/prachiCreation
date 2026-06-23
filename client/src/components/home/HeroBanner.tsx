@@ -91,14 +91,7 @@ const Slide1 = () => (
         <img src={heroImage} alt="Handmade keyrings"
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}/>
         {/* Price badge */}
-        <div style={{ position: "absolute", bottom: 10, right: 10,
-          background: "white", borderRadius: 10, padding: "5px 10px",
-          boxShadow: "0 4px 14px rgba(147,51,234,.2)",
-          fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: "#9333ea",
-          display: "flex", alignItems: "center", gap: 4 }}>
-          <Heart style={{ width: 10, height: 10, fill: "#ec4899", color: "#ec4899" }}/>
-          ₹249 · Keyrings
-        </div>
+        
         {/* Bestseller badge */}
         <div style={{ position: "absolute", top: 10, left: 10,
           background: "white", borderRadius: 8, padding: "4px 9px",
