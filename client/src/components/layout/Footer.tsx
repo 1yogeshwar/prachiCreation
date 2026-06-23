@@ -41,7 +41,7 @@ export const Footer = () => (
         <div className="space-y-4">
           <Link href="/" className="inline-flex items-center gap-2">
             <FlowerSvg size={20} />
-            <span className="font-serif font-bold" style={{ fontSize: 20, color: "#1a0a2e" }}>Prachi</span>
+            <span className="font-serif font-bold" style={{ fontSize: 20, color: "#1a0a2e" }}>Pragya</span>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", color: "#9333ea", textTransform: "uppercase", marginLeft: 2 }}>
               Creation
             </span>
@@ -116,7 +116,7 @@ export const Footer = () => (
       {/* Bottom bar */}
       <div className="pt-7 border-t border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#9ca3af" }}>
-          © {new Date().getFullYear()} Prachi Creation. All rights reserved.
+          © {new Date().getFullYear()} Pragya Creation. All rights reserved.
         </p>
         <div className="flex gap-5">
           {[["Privacy", "/privacy"], ["Terms", "/terms"]].map(([l, h]) => (

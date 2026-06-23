@@ -347,7 +347,7 @@ const Slide3 = () => (
 
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15,
           color: "#6b7280", lineHeight: 1.7, margin: 0, maxWidth: 380 }}>
-          Resin gifts, embroidery hoops, personalized keyrings — tell Prachi what you have in mind.
+          Resin gifts, embroidery hoops, personalized keyrings — tell Pragya what you have in mind.
         </p>
 
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
@@ -399,7 +399,7 @@ const Slide3 = () => (
   </section>
 );
 
-// ── Slide 4 & 5 — Banner/Poster placeholders (Prachi can replace src with her images) ──
+// ── Slide 4 & 5 — Banner/Poster placeholders (Pragya can replace src with her images) ──
 const BannerSlide = ({
   src,
   alt,
@@ -425,7 +425,7 @@ const BannerSlide = ({
         objectFit: "cover", objectPosition: "center",
       }}/>
     ) : (
-      /* Placeholder shown until Prachi adds her poster image */
+      /* Placeholder shown until Pragya adds her poster image */
       <div style={{
         position: "absolute", inset: 0,
         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
@@ -591,7 +591,7 @@ const tickerItems = [
   { emoji: "🎨", text: "Custom orders welcome" },
   { emoji: "🪡", text: "100% handcrafted" },
   { emoji: "🌺", text: "Ships across India" },
-  { emoji: "💝", text: "Made by Prachi" },
+  { emoji: "💝", text: "Made by Pragya" },
 ];
 
 const MarqueeTicker = () => {
@@ -652,7 +652,7 @@ export const PrachiLogo = ({ size = 1 }: { size?: number }) => (
         background: "linear-gradient(135deg, #1a0a2e 0%, #7c3aed 100%)",
         WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
         letterSpacing: "-0.02em",
-      }}>Prachi</span>
+      }}>Pragya</span>
       <span style={{
         fontFamily: "'Inter', sans-serif",
         fontSize: 8 * size, fontWeight: 700,

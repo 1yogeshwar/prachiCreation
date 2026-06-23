@@ -189,7 +189,7 @@
 //             </blockquote>
 //             <p className="mt-6 relative z-10"
 //               style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.10em", textTransform: "uppercase", color: "#9ca3af" }}>
-//               — Prachi, Founder
+//               — Pragya, Founder
 //             </p>
 //           </motion.div>
 //         </div>
@@ -464,7 +464,7 @@ export const Home = () => {
               className="mt-4 relative z-10"
               style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.10em", textTransform: "uppercase", color: "#9ca3af" }}
             >
-              — Prachi, Founder
+              — Pragya, Founder
             </p>
           </motion.div>
         </div>

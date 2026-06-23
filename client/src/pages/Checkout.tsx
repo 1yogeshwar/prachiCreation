@@ -123,7 +123,7 @@ export const Checkout = () => {
       key:         rzpOrder.key,
       amount:      rzpOrder.amount,
       currency:    rzpOrder.currency,
-      name:        "Prachi Creation",
+      name:        "Pragya Creation",
       description: "Handcrafted with love",
       order_id:    rzpOrder.orderId,
       prefill: {

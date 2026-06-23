@@ -81,7 +81,7 @@ export const Navbar = () => {
               <div className="flex flex-col gap-8 py-8">
                 <Link href="/" className="flex items-center gap-2">
                   <FlowerSvg size={18} />
-                  <span className="font-serif font-bold text-xl" style={{ color: "#1a0a2e" }}>Prachi</span>
+                  <span className="font-serif font-bold text-xl" style={{ color: "#1a0a2e" }}>Pragya</span>
                   <span style={{ fontFamily: "'Inter'", fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", color: "#9333ea", textTransform: "uppercase", marginLeft: 2 }}>Creation</span>
                 </Link>
                 <nav className="flex flex-col">
@@ -101,7 +101,7 @@ export const Navbar = () => {
         {/* Logo */}
         {/* <Link href="/" className="flex items-center gap-2" data-testid="nav-logo">
           <FlowerSvg size={18} />
-          <span className="font-serif font-bold" style={{ fontSize: 21, color: "#1a0a2e" }}>Prachi</span>
+          <span className="font-serif font-bold" style={{ fontSize: 21, color: "#1a0a2e" }}></span>
           <span style={{ fontFamily: "'Inter'", fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", color: "#9333ea", textTransform: "uppercase", marginLeft: 2, paddingBottom: 2 }}>
             Creation
           </span>

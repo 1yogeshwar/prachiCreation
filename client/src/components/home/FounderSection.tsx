@@ -50,7 +50,7 @@
 //               From the Studio
 //             </span>
 //             <h2 className="font-serif font-semibold text-foreground tracking-tight" style={{ fontSize: 28 }}>
-//               Prachi's Featured Moments
+//               Pragya's Featured Moments
 //             </h2>
 //             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#6b7280", maxWidth: 480 }}>
 //               Events, exhibitions and pop-ups — places where our little handmade world meets yours.
@@ -58,11 +58,11 @@
 //           </div>
 
 //           <div className="hidden md:flex items-center gap-3">
-//             <img src="https://i.pravatar.cc/56?img=47" alt="Prachi"
+//             <img src="https://i.pravatar.cc/56?img=47" alt="Pragya"
 //               style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover",
 //                 border: "3px solid white", boxShadow: "0 4px 16px rgba(147,51,234,.15)" }}/>
 //             <div>
-//               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#1a0a2e" }}>Prachi</p>
+//               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#1a0a2e" }}>Pragya</p>
 //               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#9ca3af" }}>Founder & maker</p>
 //             </div>
 //           </div>
@@ -186,7 +186,7 @@ const NoEventsFallback = () => (
             {label}
           </h3>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, lineHeight: 1.65, color: "#9ca3af" }}>
-            Prachi will be announcing upcoming events soon. Follow along to catch her next appearance!
+            Pragya will be announcing upcoming events soon. Follow along to catch her next appearance!
           </p>
         </div>
       </motion.div>
@@ -232,7 +232,7 @@ export const FounderSection = () => {
               From the Studio
             </span>
             <h2 className="font-serif font-semibold text-foreground tracking-tight" style={{ fontSize: 28 }}>
-              Prachi's Featured Moments
+              Pragya's Featured Moments
             </h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#6b7280", maxWidth: 480 }}>
               Events, exhibitions and pop-ups — places where our little handmade world meets yours.
@@ -240,11 +240,11 @@ export const FounderSection = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <img src="https://i.pravatar.cc/56?img=47" alt="Prachi"
+            <img src="https://i.pravatar.cc/56?img=47" alt="Pragya"
               style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover",
                 border: "3px solid white", boxShadow: "0 4px 16px rgba(147,51,234,.15)" }}/>
             <div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#1a0a2e" }}>Prachi</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#1a0a2e" }}>Pragya</p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#9ca3af" }}>Founder & maker</p>
             </div>
           </div>

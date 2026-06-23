@@ -60,7 +60,7 @@ export const CustomOrderPage = () => {
           Request Received!
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: "#6b7280", maxWidth: 440, lineHeight: 1.7, marginBottom: 24 }}>
-          Prachi will review your custom order and get back to you within 24 hours
+          Pragya will review your custom order and get back to you within 24 hours
           via phone or email with a quote and timeline.
         </p>
         <div style={{
@@ -103,7 +103,7 @@ export const CustomOrderPage = () => {
           Request a Custom Order
         </h1>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>
-          Want something personalised? Tell Prachi exactly what you have in mind —
+          Want something personalised? Tell Pragya exactly what you have in mind —
           size, color, name, anything. She'll make it happen!
         </p>
       </motion.div>
@@ -252,7 +252,7 @@ export const CustomOrderPage = () => {
                 📞 What happens next?
               </p>
               <p style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.6 }}>
-                Prachi will review your request and contact you within <strong>24 hours</strong> with
+                Pragya will review your request and contact you within <strong>24 hours</strong> with
                 a price quote and estimated timeline. No payment needed now!
               </p>
             </div>
